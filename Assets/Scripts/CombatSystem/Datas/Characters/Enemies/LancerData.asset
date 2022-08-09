@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386c1f73a6e70c54ca92c762d575b9fa, type: 3}
+  m_Name: LancerData
+  m_EditorClassIdentifier: 
+  _name: Lancer
+  _maxHP: 150
+  _runtimeTransform:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _runtimeVisual:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _animator: {fileID: 9100000, guid: edd464ff89f9ea94abdf0f4468ce1df3, type: 2}
+  _idleTriggerParameter: 
+  _attackTriggerParameter: 
+  _hurtTriggerParameter: 
+  _defendTriggerParameter: 
+  firstOptionEvent: {fileID: 0}
+  secondOptionEvent: {fileID: 0}
+  _attackPattern: 0
+  _attackClips:
+  - {fileID: 0}
+  _hpThreshold: 15
