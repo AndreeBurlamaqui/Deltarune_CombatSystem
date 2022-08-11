@@ -5,8 +5,10 @@ using UnityEngine;
 public abstract class OB_CharacterData : MonoBehaviour
 {
 
-    [SerializeField] SpriteRenderer visual;
-    public SpriteRenderer VisualRenderer => visual;
+    [SerializeField] SpriteRenderer _visual;
+    [SerializeField] Animator _animator;
+    public SpriteRenderer VisualRenderer => _visual;
+    public Animator Animator => _animator;
 
     internal abstract void Awake();
 
@@ -19,6 +21,6 @@ public abstract class OB_CharacterData : MonoBehaviour
         if (_runtimeTransform == null)
             return;
 
-        charData.InitiateRuntimeData((_runtimeTransform, visual));
+        charData.InitiateRuntimeData((_runtimeTransform, _visual, _animator));
     }
 }

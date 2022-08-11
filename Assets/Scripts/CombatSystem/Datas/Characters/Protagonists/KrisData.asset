@@ -14,11 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Kris
   _maxHP: 90
+  _runtimeCurrentHP:
+  - 90
+  _runtimeBattleID: 00000000
+  _damageRange:
+    Minimum: 1
+    Maximum: 4
+  _criticalHitMultiplier: 1.5
+  _defending: 0
+  _instaAttack: 0
   _runtimeTransform:
   - {fileID: 0}
   _runtimeVisual:
   - {fileID: 0}
   _animator: {fileID: 9100000, guid: 921761905a85740468d3d9e2ea179af6, type: 2}
+  _runtimeAnimator:
+  - {fileID: 0}
   _idleTriggerParameter: Idle
   _attackTriggerParameter: Attack
   _hurtTriggerParameter: Hurt

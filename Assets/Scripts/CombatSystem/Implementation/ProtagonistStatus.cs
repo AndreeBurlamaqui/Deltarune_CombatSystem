@@ -15,7 +15,7 @@ public class ProtagonistStatus : MonoBehaviour
 
     [SerializeField] OpenTabTween ActionBar;
 
-    ProtagonistData currentCharacter;
+    [HideInInspector] public ProtagonistData currentCharacter;
 
     public void SetupStatus(ProtagonistData charData)
     {
@@ -24,9 +24,10 @@ public class ProtagonistStatus : MonoBehaviour
 
         _nameLabel.text = currentCharacter.CharacterName;
         _maxHPLabel.text = currentCharacter.MaxHP.ToString();
-        _maxHPLabel.text = currentCharacter.CurrentHP.ToString();
+        _currentHPLabel.text = currentCharacter.GetCurrentHP(0).ToString();
 
         _statusIcon.sprite = currentCharacter.CharacterIcon;
+        _statusIcon.color = currentCharacter.CharacterColor;
         _statusHPSlider.color = currentCharacter.CharacterColor;
 
         foreach (Image bg in _backgrounds)

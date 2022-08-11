@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ProtagonistData", menuName = "Combat System/Protagonist Data")]
 public class ProtagonistData : CharacterData
 {
+    [Header("UNIQUE MECHANICS")]
+    public bool hasCheckACT;
 
     [Header("UI")]
     [Tooltip("Icon that'll be displayed on bottom UI")]

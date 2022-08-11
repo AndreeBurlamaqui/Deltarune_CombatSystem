@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c0f416c76094d94c806cb59ffabcc32, type: 3}
   m_Name: Test_ACTions
   m_EditorClassIdentifier: 
-  firstOption_Name: 
-  firstOption_Flavor: 
-  secondOption_Name: 
-  secondOption_Flavor: 
+  options:
+  - actName: Bow
+    actFlavor: '* You bow to him. They bow to you back.
+
+      * Their defense were
+      decreased by 1'
+    actEvent: {fileID: 11400000, guid: 37dc5e1bb7fd3c8419ef8645f00b2ee3, type: 2}
+  - actName: Cheers
+    actFlavor: '* You lift your sword up.
+
+      * They ignored you, tho.'
+    actEvent: {fileID: 11400000, guid: aa0d59941c5d3144a9de92bafb10fd7f, type: 2}

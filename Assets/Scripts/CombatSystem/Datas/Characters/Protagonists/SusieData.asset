@@ -14,11 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Susie
   _maxHP: 110
+  _runtimeCurrentHP:
+  - 110
+  _runtimeBattleID: 01000000
+  _damageRange:
+    Minimum: 3
+    Maximum: 7
+  _criticalHitMultiplier: 1.5
+  _defending: 0
+  _instaAttack: 0
   _runtimeTransform:
   - {fileID: 0}
   _runtimeVisual:
   - {fileID: 0}
   _animator: {fileID: 9100000, guid: 606258febe5b0fd4bbec1ea4d605086e, type: 2}
+  _runtimeAnimator:
+  - {fileID: 0}
   _idleTriggerParameter: Idle
   _attackTriggerParameter: Attack
   _hurtTriggerParameter: Hurt

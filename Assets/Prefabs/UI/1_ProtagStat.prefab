@@ -942,6 +942,7 @@ MonoBehaviour:
   _statusHPSlider: {fileID: 6762564830538147671}
   _statusIcon: {fileID: 701909887692945192}
   ActionBar: {fileID: 8776255402635992609}
+  currentCharacter: {fileID: 0}
 --- !u!114 &1904669170933796823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1434,11 +1435,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6104d1dcdd638c49aa4e4a407915e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectTransformToUpdate: {fileID: 2394435977338318996}
   tweenWidth: 0
   tweenHeight: 1
   tweenDuration: 0.75
   easeType: 26
-  hideChildrensWhileTween: 1
+  hideChildrensWhileTween: 0
   openException:
   - {fileID: 9007521078960502948}
   - {fileID: 4540380628843750519}
@@ -3709,4 +3711,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6731512972903360512}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 71d59bcac342b294190a3e269b447801, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -247,5 +247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d95b08aff426e4098dfa14995c40c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visual: {fileID: 7866326542214954283}
+  _visual: {fileID: 7866326542214954283}
+  _animator: {fileID: 7866326544225184975}
   _character: {fileID: 0}

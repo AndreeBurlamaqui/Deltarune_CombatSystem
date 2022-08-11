@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class OpenTabTween : MonoBehaviour
 {
-
+    [SerializeField] RectTransform rectTransformToUpdate;
     [SerializeField] bool tweenWidth;
     [SerializeField] bool tweenHeight;
     [SerializeField] float tweenDuration = 0.35f;
@@ -43,7 +43,6 @@ public class OpenTabTween : MonoBehaviour
             if (rt == null)
                 return;
 
-            SetChildrenActivate(false);
 
             if (tweenHeight)
             {
@@ -54,6 +53,7 @@ public class OpenTabTween : MonoBehaviour
                 DOTween.To(ApplyTween, startWidth, 0, tweenDuration).SetEase(easeType).OnComplete(() => gameObject.SetActive(false));
             }
 
+            SetChildrenActivate(false);
         }
 
     }
@@ -73,9 +73,6 @@ public class OpenTabTween : MonoBehaviour
 
         //Disable every child and tween to the starting width or height 
 
-        SetChildrenActivate(false);
-        gameObject.SetActive(true);
-
         if (tweenHeight)
         {
             DOTween.To(ApplyTween, 0, startHeight, tweenDuration).SetEase(easeType).OnComplete(() => SetChildrenActivate(true));
@@ -84,11 +81,14 @@ public class OpenTabTween : MonoBehaviour
         {
             DOTween.To(ApplyTween, 0, startWidth, tweenDuration).SetEase(easeType).OnComplete(() => SetChildrenActivate(true));
         }
+
+        SetChildrenActivate(false);
+        gameObject.SetActive(true);
     }
 
     private void SetChildrenActivate(bool state)
     {
-        if (hideChildrensWhileTween)
+        if (!hideChildrensWhileTween)
             return;
 
         bool catchInactives = state; // It'll only catch inactives if the state is set to True. I.e. we're opening it.
@@ -139,5 +139,9 @@ public class OpenTabTween : MonoBehaviour
         }
 
         rt.ForceUpdateRectTransforms();
+
+
+        if (rectTransformToUpdate != null)
+            rectTransformToUpdate.ForceUpdateRectTransforms();
     }
 }

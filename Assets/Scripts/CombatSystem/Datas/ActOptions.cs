@@ -7,14 +7,14 @@ using UnityEngine.Events;
 public class ActOptions : ScriptableObject
 {
 
-    [Header("FIRST OPTION")]
-    public string firstOptionName;
-    public string firstOptionFlavor;
-    public GameEvent firstOptionAction; 
+    public ACT[] options = new ACT[4]; // Max of four, one of them can be overlapped if check is enabled
 
-    [Header("SECOND OPTION")]
-    public string secondOptionName;
-    public string secondOptionFlavor;
-    public GameEvent secondOptionAction;
+}
 
+[System.Serializable]
+public struct ACT
+{
+    public string actName;
+    [Multiline] public string actFlavor;
+    public GameEvent actEvent;
 }

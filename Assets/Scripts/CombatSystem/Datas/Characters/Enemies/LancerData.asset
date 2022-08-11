@@ -14,29 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Lancer
   _maxHP: 150
+  _damageRange:
+    Minimum: 10
+    Maximum: 50
+  _criticalHitMultiplier: 1.5
+  _defending: 0
+  _instaAttack: 0
   _runtimeTransform:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   _runtimeVisual:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _animator: {fileID: 9100000, guid: edd464ff89f9ea94abdf0f4468ce1df3, type: 2}
-  _idleTriggerParameter: 
-  _attackTriggerParameter: 
-  _hurtTriggerParameter: 
-  _defendTriggerParameter: 
+  _runtimeAnimator:
+  - {fileID: 0}
+  - {fileID: 0}
+  _idleTriggerParameter: Idle
+  _attackTriggerParameter: Attack
+  _hurtTriggerParameter: Hurt
+  _defendTriggerParameter: Defend
+  _characterColor: {r: 1, g: 1, b: 1, a: 1}
   firstOptionEvent: {fileID: 0}
   secondOptionEvent: {fileID: 0}
   _attackPattern: 0

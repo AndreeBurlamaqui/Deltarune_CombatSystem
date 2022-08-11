@@ -12,5 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ec637300716f9489ceff8fe9996e8a, type: 3}
   m_Name: Test_BattleData
   m_EditorClassIdentifier: 
-  _environmentPrefab: {fileID: 1809298378816748967, guid: d983e367f387e7b4c90d5d84de4b9452, type: 3}
   InBattleCharacters: []
+  fightersRange:
+    Minimum: 1
+    Maximum: 3
+  cursorTimeRange:
+    Minimum: 1
+    Maximum: 5
+  cursorOffsetRange:
+    Minimum: 0
+    Maximum: 50
+  actOptions: {fileID: 11400000, guid: 527424cedbd4e854987406706a7cc935, type: 2}

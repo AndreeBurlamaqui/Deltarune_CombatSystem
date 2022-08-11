@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Game Event", menuName = "Custom Game Event")]
+[CreateAssetMenu(fileName = "New Game Event", menuName = "Game Events/Custom Game Event")]
 public class GameEvent : ScriptableObject
 {
     [SerializeField]

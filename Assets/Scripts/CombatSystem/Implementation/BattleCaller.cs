@@ -26,16 +26,24 @@ public class BattleCaller : MonoBehaviour
 #endif
     public void StartBattle()
     {
-
-
-        foreach (OB_Enemy obe in enemies)
+        for (int obe = 0; obe < enemies.Length; obe++)
         {
-            obe.Character.InitiateRuntimeData((obe.transform, obe.VisualRenderer));
+            OB_Enemy obEnemy = enemies[obe];
 
-            if (battleData.InBattleCharacters.Contains(obe.Character))
+            if (obEnemy == null)
+                continue; // Avoid errors in case we forgot to assign something, at least it'll work.
+
+            obEnemy.Character.InitiateRuntimeData((obEnemy.transform, obEnemy.VisualRenderer, obEnemy.Animator));
+            obEnemy.Character._runtimeBattleID.Add(obe);
+
+            if (battleData.InBattleCharacters.Contains(obEnemy.Character))
                 continue;
 
-            battleData.InBattleCharacters.Add(obe.Character);
+            obEnemy.Character._runtimeBattleID.Clear();
+
+            battleData.InBattleCharacters.Add(obEnemy.Character);
+            battleData.InBattleEnemies.Add(obe, obEnemy.Character);
+            obEnemy.Character._runtimeBattleID.Add(obe);
         }
 
         BattleCallerEvent?.Invoke(battleData);
