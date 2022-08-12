@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9b82d23be767345961929322605c46, type: 3}
+  m_Name: KrisData
+  m_EditorClassIdentifier: 
+  _name: Kris
+  _maxHP: 90
+  _maxDefense: 5
+  _runtimeBattleID: 00000000
+  flavorDescription: 
+  _damageRange:
+    Minimum: 3
+    Maximum: 10
+  _criticalHitMultiplier: 1.5
+  _defending: 0
+  _instaAttack: 0
+  _animator: {fileID: 9100000, guid: 921761905a85740468d3d9e2ea179af6, type: 2}
+  _idleTriggerParameter: Idle
+  _attackTriggerParameter: Attack
+  _hurtTriggerParameter: Hurt
+  _defendTriggerParameter: Defend
+  _characterColor: {r: 0, g: 0.62896585, b: 1, a: 1}
+  Inventory: {fileID: 11400000, guid: c696aa14cf4425241ab6c2f892f9d6ed, type: 2}
+  hasCheckACT: 1
+  _icon: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}

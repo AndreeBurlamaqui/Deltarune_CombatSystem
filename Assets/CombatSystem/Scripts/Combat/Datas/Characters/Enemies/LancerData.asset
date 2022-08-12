@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386c1f73a6e70c54ca92c762d575b9fa, type: 3}
+  m_Name: LancerData
+  m_EditorClassIdentifier: 
+  _name: Lancer
+  _maxHP: 150
+  _maxDefense: 8
+  _runtimeBattleID: 
+  _runtimeSpared: 
+  flavorDescription: '* Not to call a spade a spade, but he''s a spade.
+
+
+    * Not
+    old enough enough to ride a motorcycle, so he set his bike on fire.'
+  _damageRange:
+    Minimum: 10
+    Maximum: 50
+  _criticalHitMultiplier: 1.5
+  _defending: 0
+  _instaAttack: 0
+  _animator: {fileID: 9100000, guid: edd464ff89f9ea94abdf0f4468ce1df3, type: 2}
+  _idleTriggerParameter: Idle
+  _attackTriggerParameter: Attack
+  _hurtTriggerParameter: Hurt
+  _defendTriggerParameter: Defend
+  _characterColor: {r: 1, g: 1, b: 1, a: 1}
+  _startSpareFactor: 1
+  _runtimeCurrentSpareFactor: []
+  _healthPercentageSpareable: 75
+  _attackActions:
+  - {fileID: 11400000, guid: edb4ef232bca7f84395c3130d508121d, type: 2}
+  - {fileID: 11400000, guid: 68c10ca4f2e90fe4d9b3eb3ab09ad6d2, type: 2}
+  - {fileID: 11400000, guid: e46464aa2c601b140b486cc4cf4e134f, type: 2}
+  - {fileID: 11400000, guid: 2e1a349cb91b51b43b093d22437e5cdb, type: 2}
+  _hpThreshold: 15

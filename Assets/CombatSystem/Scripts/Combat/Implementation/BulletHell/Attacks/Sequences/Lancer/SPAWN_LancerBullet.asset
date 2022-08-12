@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a277bce2eb9b1274abda6679d3bfaf89, type: 3}
+  m_Name: SPAWN_LancerBullet
+  m_EditorClassIdentifier: 
+  _attackVisualPrefab: {fileID: 336792645528413135, guid: c402fdcf4d951f244875608c1c3b9aaa, type: 3}
+  _spawnType: 5
+  _spawnSetterPrefab: {fileID: 1411101629893672720, guid: f3bd99c178c557843a7087d315c5b823, type: 3}
+  _radiusRange: 50
+  isUnique: 0

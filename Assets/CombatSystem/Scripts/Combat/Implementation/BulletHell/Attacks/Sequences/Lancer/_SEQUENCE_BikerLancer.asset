@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f5f30b4840a7c4c9a257c06cf0bd58, type: 3}
+  m_Name: _SEQUENCE_BikerLancer
+  m_EditorClassIdentifier: 
+  _textBeforeAttack: '* I''ll get you!'
+  _textAfterAttack: 
+  _attacks:
+  - debugName: 'Attack duration: 3,155'
+    spawnModule: {fileID: 11400000, guid: 9ff929e5fe4b9a8499aab3c17bc0df8d, type: 2}
+    actions:
+    - {fileID: 11400000, guid: 68635e7da76514140928cde952d1a803, type: 2}
+    - {fileID: 11400000, guid: cf1ac6bfa594ee94a8785c3af356ae14, type: 2}
+    sequenceWait: 2.2
+    sequenceDelay: 0.3
+    repeatDelay: 0.015
+    repeatTimes: 7
+    destroyDelay: 15
+    textDuringAttack: '* Feel filled by regretfulness?'
