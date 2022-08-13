@@ -30,6 +30,7 @@ public class QTEHandler : MonoBehaviour
     [SerializeField] float boxRange = 750f;
     [SerializeField] RectTransform criticalMeter;
     bool qteActivated = false;
+    public bool IsQTEActive => qteActivated;
 
     [Header("EVENTS")]
     [SerializeField] GameEvent ShowScreenButtonEvent;

@@ -10,17 +10,12 @@ public class EnemyData : CharacterData
     [Header("SPARE")]
     [Tooltip("An enemy will be spareable if below 0. And will start the battle with this value")]
     [SerializeField] int _startSpareFactor = 10;
-    [SerializeField]List<float> _runtimeCurrentSpareFactor = new List<float>();
+    List<float> _runtimeCurrentSpareFactor = new List<float>();
     [Tooltip("Percentage threshold that, when HP is below, this enemy will be spareable")]
     [SerializeField] int _healthPercentageSpareable;
 
     [Header("ATTACKS")]
     [SerializeField] EnemyAttack[] _attackActions = new EnemyAttack[1]; // Minimum of 1 attack
-
-    [Header("HP BASED ATTACK PATTERN")]
-    [Tooltip("Every time the enemy loses the given threshold, the next attack will be selected")]
-    [SerializeField] float _hpThreshold = 15;
-
 
     public override bool IsProtagonist { get => false; }
 

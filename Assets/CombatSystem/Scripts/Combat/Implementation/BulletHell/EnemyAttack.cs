@@ -85,6 +85,7 @@ public class EnemyAttack : ScriptableObject
         //routineHolder.flavorLabel.gameObject.SetActive(false);
 
         currentEndSequenceEvent?.Invoke();
+        DespawnSequence();
     }
 
     public void StopEnemyAttack()

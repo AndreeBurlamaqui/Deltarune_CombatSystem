@@ -74,9 +74,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageLabel: {fileID: 3648137235374139584}
-  radiusRange: 35
+  radiusRange: 500
   showSpeed: 1
-  curvePower: 150
+  curvePower: 35
 --- !u!225 &1687239077295898157
 CanvasGroup:
   m_ObjectHideFlags: 0

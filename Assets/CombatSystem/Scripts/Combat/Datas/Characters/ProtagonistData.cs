@@ -10,6 +10,8 @@ public class ProtagonistData : CharacterData
 
     [Header("UNIQUE MECHANICS")]
     public bool hasCheckACT;
+    [Tooltip("If this is enabled, the character will insta attack when reaching its turn. Affect only protagonsits.")]
+    [SerializeField] bool _instaAttack;
 
     [Header("UI")]
     [Tooltip("Icon that'll be displayed on bottom UI")]
@@ -17,4 +19,6 @@ public class ProtagonistData : CharacterData
 
     public Sprite CharacterIcon => _icon;
     public override bool IsProtagonist { get => true; }
+    public bool DoInstaAttack => _instaAttack;
+
 }

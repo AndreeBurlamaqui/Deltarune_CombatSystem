@@ -19,19 +19,26 @@ public class OpenTabTween : MonoBehaviour
 
     private float startWidth, startHeight;
     private RectTransform rt;
+    private RectTransform TabRect
+    {
+        get
+        {
+            if (rt == null)
+            {
+                rt = GetComponent<RectTransform>();
+
+                startHeight = rt.rect.height;
+                startWidth = rt.rect.width;
+            }
+
+            return rt;
+        }
+    }
 
 
     [ContextMenu("Toggle Tab")]
     public void ToggleTab()
     {
-
-        if (rt == null)
-        {
-            rt = GetComponent<RectTransform>();
-
-            startHeight = rt.rect.height;
-            startWidth = rt.rect.width;
-        }
 
         if (!gameObject.activeSelf) //OPEN
         {
@@ -40,35 +47,15 @@ public class OpenTabTween : MonoBehaviour
         }
         else //CLOSE
         {
-            if (rt == null)
-                return;
-
-
-            if (tweenHeight)
-            {
-                DOTween.To(ApplyTween, startHeight, 0, tweenDuration).SetEase(easeType).OnComplete(() => gameObject.SetActive(false));
-            }
-            if (tweenWidth)
-            {
-                DOTween.To(ApplyTween, startWidth, 0, tweenDuration).SetEase(easeType).OnComplete(() => gameObject.SetActive(false));
-            }
-
-            SetChildrenActivate(false);
+            CloseTab();
         }
 
     }
 
     public void OpenTab()
     {
-        if (rt == null)
-        {
-            rt = GetComponent<RectTransform>();
 
-            startHeight = rt.rect.height;
-            startWidth = rt.rect.width;
-        }
-
-        if (rt == null)
+        if (TabRect == null)
             return;
 
         //Disable every child and tween to the starting width or height 
@@ -84,6 +71,25 @@ public class OpenTabTween : MonoBehaviour
 
         SetChildrenActivate(false);
         gameObject.SetActive(true);
+    }
+
+    public void CloseTab()
+    {
+
+        if (TabRect == null)
+            return;
+
+
+        if (tweenHeight)
+        {
+            DOTween.To(ApplyTween, startHeight, 0, tweenDuration).SetEase(easeType).OnComplete(() => gameObject.SetActive(false));
+        }
+        if (tweenWidth)
+        {
+            DOTween.To(ApplyTween, startWidth, 0, tweenDuration).SetEase(easeType).OnComplete(() => gameObject.SetActive(false));
+        }
+
+        SetChildrenActivate(false);
     }
 
     private void SetChildrenActivate(bool state)
@@ -126,19 +132,19 @@ public class OpenTabTween : MonoBehaviour
 
     private void ApplyTween(float size)
     {
-        if (rt == null)
+        if (TabRect == null)
             return;
 
         if (tweenHeight)
         {
-            rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, size);
+            TabRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, size);
         }
         if (tweenWidth)
         {
-            rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size);
+            TabRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size);
         }
 
-        rt.ForceUpdateRectTransforms();
+        TabRect.ForceUpdateRectTransforms();
 
 
         if (rectTransformToUpdate != null)

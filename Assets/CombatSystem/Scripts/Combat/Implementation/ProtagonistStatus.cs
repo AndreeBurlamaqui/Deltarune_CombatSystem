@@ -34,9 +34,14 @@ public class ProtagonistStatus : MonoBehaviour
             bg.color = currentCharacter.CharacterColor;
     }
 
-    public void ToggleActionBar()
+    public void CloseActionbar()
     {
-        ActionBar.ToggleTab();
+        ActionBar.CloseTab();
+    }
+
+    public void OpenActionbar()
+    {
+        ActionBar.OpenTab();
     }
 
     public void UpdateStatus()

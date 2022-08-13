@@ -55,7 +55,20 @@ public class BattleData : ScriptableObject
     /// How many QTE events at the same time it'll have
     /// Max random factor will not be more than the <see cref="ProtagonistCount"/>
     /// </summary>
-    public int RandomFightersCount => fightersRange.RandomMinByCustomMax(InBattleProtagonists.Count).ToInt();
+    public int RandomFightersCount => fightersRange.RandomMinByCustomMax(TotalAliveProtagonists).ToInt();
+
+    public int TotalAliveProtagonists
+    {
+        get
+        {
+            int aliveCount = 0;
+
+            foreach (ProtagonistData pd in InBattleProtagonists.Values)
+                aliveCount += pd.Lost(0) ? 0 : 1;
+
+            return aliveCount;
+        }
+    }
 
     public int TotalEnemies
     {
@@ -77,7 +90,8 @@ public class BattleData : ScriptableObject
             int sparedCount = 0;
 
             foreach (EnemyData ed in InBattleEnemies.Values)
-                sparedCount += ed._runtimeSpared.Count;
+                foreach(bool s in ed._runtimeSpared)
+                    sparedCount += s ? 1 : 0;
 
             return sparedCount;
         }

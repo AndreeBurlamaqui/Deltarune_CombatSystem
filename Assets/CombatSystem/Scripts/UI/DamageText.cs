@@ -59,10 +59,10 @@ public class DamageText : MonoBehaviour
 
         // Go to the center
         //Rect.position = screenPos;
-        transform.position = screenPos + (Random.insideUnitCircle * radiusRange * 5);
+        transform.position = screenPos + (5 * radiusRange * Time.fixedDeltaTime * Random.insideUnitCircle);
 
         // Get an offset around the center
-        Vector3 offsetTween = screenPos + (Random.insideUnitCircle * radiusRange * 10);
+        Vector3 offsetTween = screenPos + (10 * radiusRange * Time.fixedDeltaTime * Random.insideUnitCircle);
 
         // Tween
         transform.DOJump(offsetTween, Random.Range(-curvePower, curvePower), 1, showSpeed)

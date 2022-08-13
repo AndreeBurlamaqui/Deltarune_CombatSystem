@@ -15,10 +15,6 @@ public class ATK_Move : AttackTypeModule
     public override void Attack(BulletHellHandler bulletHell, GameObject currentVisual)
     {
         base.Attack(bulletHell, currentVisual);
-        //float referenceResolutionWidth = 800;
-        //float screenWidthsPerSecond = 2.5f;
-        //Vector3 finalPos = AttackTransform.position + (moveDistance * (referenceResolutionWidth / screenWidthsPerSecond) * Time.deltaTime * AttackForward.normalized);
-        //AttackTransform.DOMove(finalPos, moveSpeed).SetEase(Ease.Linear);
 
         bulletHell.StartCoroutine(ApplyMove(AttackTransform, AttackForward));
 
@@ -29,6 +25,7 @@ public class ATK_Move : AttackTypeModule
             {
                 if (toMove == null)
                     break;
+
                 // magic number 2 to make move speed value smaller, so we don't need to assign 4 decimals values, haha
                 toMove.localPosition += ((2 *moveSpeed * forward) * Time.fixedDeltaTime);
                 yield return new WaitForFixedUpdate();

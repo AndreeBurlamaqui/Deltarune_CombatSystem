@@ -30,8 +30,7 @@ public class CharacterData : ScriptableObject
     [SerializeField] FloatRange _damageRange = new(10, 50);
     [SerializeField] float _criticalHitMultiplier = 1.5f;
     [SerializeField] bool _defending;
-    [Tooltip("If this is enabled, the character will insta attack when reaching its turn. Affect only protagonsits.")]
-    [SerializeField] bool _instaAttack;
+
 
     [Header("VISUAL")]
     internal List<Transform> _runtimeTransform = new List<Transform>();
@@ -68,7 +67,6 @@ public class CharacterData : ScriptableObject
     public int RandomDamage => _damageRange.RandomInRange.ToInt();
     public int RandomCriticalDamage => (RandomDamage * _criticalHitMultiplier).ToInt();
     public bool IsDefending { get => _defending; set => _defending = value; }
-    public bool DoInstaAttack => _instaAttack;
 
     #endregion
 

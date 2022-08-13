@@ -245,7 +245,6 @@ public class BattleHandler : MonoBehaviour
             // It's now enemy turn
             currentCharacterTurn_ID = -1;
             NextEnemyTurn();
-
             return;
         }
 
@@ -256,12 +255,18 @@ public class BattleHandler : MonoBehaviour
             // At least, the player will lose but will not crash or get stuck.
             currentCharacterTurn_ID = -1;
             NextEnemyTurn();
-
             return;
         }
 
         if (CurrentPlayerTurn_DATA.Lost(0))
+        {
+            Debug.Log($"{CurrentPlayerTurn_DATA.CharacterName} already lost, go to next available player");
             NextPlayerTurn();
+            return;
+        }
+
+        // Hide QTEs
+        HideAllQTE();
 
         currentBattleState = BattleState.PLAYERTURN;
 
@@ -283,7 +288,18 @@ public class BattleHandler : MonoBehaviour
         }
         else
         {
-            _protagonistsStatus[currentCharacterTurn_ID].ToggleActionBar();
+            _protagonistsStatus[currentCharacterTurn_ID].OpenActionbar(); // Force open it in case something went wrong
+        }
+    }
+
+    private void HideAllQTE()
+    {
+        for (int qte = 0; qte < _protagonistsQTE.Length; qte++)
+        {
+            if (!_protagonistsQTE[qte].gameObject.activeSelf)
+                continue; // Already hidden
+
+            _protagonistsQTE[qte].EndQTE();
         }
     }
 
@@ -324,26 +340,27 @@ public class BattleHandler : MonoBehaviour
         currentlyAttackingCount = currentBattleData.RandomFightersCount;
 
 
-        _protagonistsStatus[currentCharacterTurn_ID].ToggleActionBar();
+        _protagonistsStatus[currentCharacterTurn_ID].CloseActionbar();
+
+        // Get the current player QTE bar
+        _protagonistsQTE[currentCharacterTurn_ID].StartQTE(currentBattleData.RandomCursorTime, currentBattleData.RandomOffsetRange, new Vector2(0, 5));
 
         if (currentlyAttackingCount > 1)
         {
             // How many QTE evets we'll fire
-            for (int qte = 0; qte < currentlyAttackingCount; qte++)
+            for (int qte = 0; qte < currentlyAttackingCount - 1; qte++)
             {
+                if (_protagonistsQTE[qte].runtimeCharacterData.Lost(0))
+                    continue; // Dead player, don't start it
+
+                if (_protagonistsQTE[qte].IsQTEActive)
+                    continue; // Already active, so probably it's from the main player
+
                 float cursorSpeed = currentBattleData.RandomCursorTime;
                 float randomOffset = currentBattleData.RandomOffsetRange;
 
                 _protagonistsQTE[qte].StartQTE(cursorSpeed, randomOffset, new Vector2(0, 5));
             }
-        }
-        else
-        {
-            float cursorSpeed = currentBattleData.RandomCursorTime;
-            float randomOffset = currentBattleData.RandomOffsetRange;
-
-            _protagonistsQTE[currentCharacterTurn_ID].StartQTE(cursorSpeed, randomOffset, new Vector2(0, 5));
-
         }
     }
 
@@ -411,12 +428,12 @@ public class BattleHandler : MonoBehaviour
         foreach (int id in attackingCharacters.Keys)
         {
             CharacterData attacker = currentBattleData.InBattleProtagonists[id];
-            int damage = attackingCharacters[id] ? attacker.RandomCriticalDamage : attacker.RandomDamage;
             CharacterData victim = LastEnemyAttacked_DATA;
 
             // TIP: You can create a second-hpbar boss by checkin IsDefending on ScriptableObject
             // So, it'll reduce every damage and the player will need to reduce it's DF status
             int damageReducer = victim.IsDefending ? victim.GetCurrentDefenseClamped(0) : 1;
+            int damage = (attackingCharacters[id] ? attacker.RandomCriticalDamage : attacker.RandomDamage) / damageReducer;
             victim.SubtractCurrentHP(_runtimeEnemySelect_ID, damage);
 
             // Play hurt animation
@@ -442,7 +459,7 @@ public class BattleHandler : MonoBehaviour
 
         Debug.Log("Animation ended");
 
-        if (!CurrentCharacterTurn_DATA.DoInstaAttack)
+        if (!CurrentPlayerTurn_DATA.DoInstaAttack)
             EndQTEEvent?.Raise(); // No need to raise this event if we insta attack, since we don't open the QTE
 
         NextPlayerTurn();
@@ -496,7 +513,7 @@ public class BattleHandler : MonoBehaviour
 
     public void TryAct(int id)
     {
-        _protagonistsStatus[currentCharacterTurn_ID].ToggleActionBar();
+        _protagonistsStatus[currentCharacterTurn_ID].CloseActionbar();
         HideAllOptions();
         string actResultText = "...";
 
@@ -572,7 +589,7 @@ public class BattleHandler : MonoBehaviour
             // If so, use it and close it
             _itemStatus[id].UnhighlightItem();
             CurrentPlayerTurn_DATA.Inventory.UseItem(id);
-            _protagonistsStatus[currentCharacterTurn_ID].ToggleActionBar();
+            _protagonistsStatus[currentCharacterTurn_ID].CloseActionbar();
             HideAllOptions();
         }
         else
@@ -618,7 +635,7 @@ public class BattleHandler : MonoBehaviour
     public void TrySpare()
     {
         EnemyData curEnemy = LastEnemyAttacked_DATA;
-        _protagonistsStatus[currentCharacterTurn_ID].ToggleActionBar();
+        _protagonistsStatus[currentCharacterTurn_ID].CloseActionbar();
 
         if (!curEnemy.CanSpare(_runtimeEnemySelect_ID))
         {
@@ -639,7 +656,7 @@ public class BattleHandler : MonoBehaviour
     public void DefendOption()
     {
         currentOptionChoice = OptionChoice.DEFEND;
-        _protagonistsStatus[currentCharacterTurn_ID].ToggleActionBar();
+        _protagonistsStatus[currentCharacterTurn_ID].CloseActionbar();
 
         CharacterData curChar = CurrentPlayerTurn_DATA;
         curChar.IsDefending = true;
@@ -807,7 +824,6 @@ public class BattleHandler : MonoBehaviour
             // It's now player turn
             currentCharacterTurn_ID = -1;
             NextPlayerTurn();
-
             return;
         }
 
@@ -816,8 +832,13 @@ public class BattleHandler : MonoBehaviour
         _runtimeEnemySelect_ID = _runtimeID;
 
         if (CurrentEnemyTurn_DATA.Lost(_runtimeEnemySelect_ID))
+        {
             NextEnemyTurn();
+            return;
+        }
 
+        // Hide QTEs
+        HideAllQTE();
 
         CurrentCharacterTurn_DATA.PlayAnimationOnCharacter(this, _runtimeEnemySelect_ID, CurrentCharacterTurn_DATA.IdleAnimation);
 
