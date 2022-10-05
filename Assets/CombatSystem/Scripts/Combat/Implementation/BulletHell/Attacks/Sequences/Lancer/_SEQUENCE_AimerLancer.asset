@@ -15,7 +15,7 @@ MonoBehaviour:
   _textBeforeAttack: 
   _textAfterAttack: 
   _attacks:
-  - debugName: 'Attack duration: 3,55'
+  - debugName: 'Attack duration: 3,05'
     spawnModule: {fileID: 11400000, guid: 2b8f8769dd3afe94e96b386703f90357, type: 2}
     actions:
     - {fileID: 11400000, guid: 68635e7da76514140928cde952d1a803, type: 2}
@@ -25,4 +25,4 @@ MonoBehaviour:
     repeatDelay: 0.15
     repeatTimes: 10
     destroyDelay: 5
-    textDuringAttack: '* And now?'
+    textDuringAttack: 

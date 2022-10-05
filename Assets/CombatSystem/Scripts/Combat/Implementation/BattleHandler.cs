@@ -434,6 +434,7 @@ public class BattleHandler : MonoBehaviour
             // So, it'll reduce every damage and the player will need to reduce it's DF status
             int damageReducer = victim.IsDefending ? victim.GetCurrentDefenseClamped(0) : 1;
             int damage = (attackingCharacters[id] ? attacker.RandomCriticalDamage : attacker.RandomDamage) / damageReducer;
+
             victim.SubtractCurrentHP(_runtimeEnemySelect_ID, damage);
 
             // Play hurt animation

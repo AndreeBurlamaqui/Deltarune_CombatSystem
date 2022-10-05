@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Susie
   _maxHP: 110
   _maxDefense: 5
-  _runtimeBattleID: 
+  _runtimeBattleID: 01000000
   _runtimeSpared: 00
   flavorDescription: 
   _damageRange:
@@ -23,7 +23,6 @@ MonoBehaviour:
     Maximum: 75
   _criticalHitMultiplier: 1.5
   _defending: 0
-  _instaAttack: 1
   _idleTriggerParameter: Idle
   _attackTriggerParameter: Attack
   _hurtTriggerParameter: Hurt
@@ -31,4 +30,5 @@ MonoBehaviour:
   _characterColor: {r: 0.853862, g: 0, b: 0.8679245, a: 1}
   Inventory: {fileID: 11400000, guid: c696aa14cf4425241ab6c2f892f9d6ed, type: 2}
   hasCheckACT: 0
-  _icon: {fileID: -2135585597343286014, guid: 4b2a04fdbe0ef4d8da8f90eaca817cd1, type: 3}
+  _instaAttack: 1
+  _icon: {fileID: 21300000, guid: 6f69ba8e013a2a54384856872b4321a2, type: 3}

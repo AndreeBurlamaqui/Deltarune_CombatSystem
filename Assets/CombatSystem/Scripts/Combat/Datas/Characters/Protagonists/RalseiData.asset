@@ -23,7 +23,6 @@ MonoBehaviour:
     Maximum: 20
   _criticalHitMultiplier: 1.5
   _defending: 0
-  _instaAttack: 0
   _idleTriggerParameter: Idle
   _attackTriggerParameter: Attack
   _hurtTriggerParameter: Hurt
@@ -31,4 +30,5 @@ MonoBehaviour:
   _characterColor: {r: 0.78203416, g: 1, b: 0.47450984, a: 1}
   Inventory: {fileID: 11400000, guid: c696aa14cf4425241ab6c2f892f9d6ed, type: 2}
   hasCheckACT: 0
-  _icon: {fileID: 21300000, guid: 31790a58cfca26746a498752663a8aec, type: 3}
+  _instaAttack: 0
+  _icon: {fileID: 21300000, guid: a3a72a9880aa484409953731f598cbc3, type: 3}
