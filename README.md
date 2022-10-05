@@ -6,3 +6,8 @@ PROMPT:
 
 HOW IT WORKS:
 https://tiny-studios.notion.site/Deltarune-Combat-System-22ebafc5776d47d4ba3e1c829edcaca4
+
+DEMO GAMEPLAY:
+
+https://user-images.githubusercontent.com/87104166/193973090-79730d81-d8d0-47d9-b6dc-c62d840283e0.mp4
+
